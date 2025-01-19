@@ -17,8 +17,8 @@ class CostmapNode : public rclcpp::Node {
     robot::CostmapCore costmap_;
 
     // Starter example
-    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr string_pub_;
-    rclcpp::TimerBase::SharedPtr timer_;
+    // rclcpp::Publisher<std_msgs::msg::String>::SharedPtr string_pub_;
+    // rclcpp::TimerBase::SharedPtr timer_;
 
     void laserCallback(const sensor_msgs::msg::LaserScan::SharedPtr scan);
     rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr lidar_sub_;
