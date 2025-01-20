@@ -43,7 +43,7 @@ void CostmapCore::markObstacle(int x_grid, int y_grid) {
 
 void CostmapCore::inflateObstacles() {
     std::vector<int8_t> inflated_costmap = costmap_;
-    int inflation_radius_in_cells = static_cast<int>(1.0 / resolution_);
+    int inflation_radius_in_cells = static_cast<int>((1.0 / resolution_)*5.0);
 
     // Loop over each point and find the obstacle point
     for (int y = 0; y < size_; ++y) {
@@ -56,7 +56,7 @@ void CostmapCore::inflateObstacles() {
                         int ny = y + dy;
                         if (nx >= 0 && nx < size_ && ny >= 0 && ny < size_) { // check if within the costmap area bound
                             double distance = sqrt(dx * dx + dy * dy) * resolution_;
-                            if (distance <= 1.0) {
+                            if (distance <= 4.0) {
                                 int max_cost = 100;
                                 int inflation_radius_in_meters = 1.0;
                                 int cost = static_cast<int>(max_cost * (1 - distance / inflation_radius_in_meters));
